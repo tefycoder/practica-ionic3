@@ -43,9 +43,9 @@ export class MyApp {
 
     this.pages = [
       { title: 'Home', component: 'HomePage', active: true, icon: 'home' },
-      { title: 'Cultura', component: 'AccordionListPage', active: false, icon: 'map' },
+      { title: 'Cultura', component: 'HomePage', active: false, icon: 'map' },
       { title: 'Turismo',
-        component: 'IonicOfficialComponentsPage', active: false, icon: 'ionic' },
+        component: 'HomePage', active: false, icon: 'ionic' },
       //{ title: 'Ionic Native Features', component: 'IonicNativePage', active: false, icon: 'ionic' },
      // { title: 'Login', component: 'LoginListPage', active: false, icon: 'archive' },
      // { title: 'Lists', component: 'ListPage', active: false, icon: 'body' },

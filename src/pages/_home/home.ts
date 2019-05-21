@@ -4,6 +4,7 @@ import { BarcodeScanner} from '@ionic-native/barcode-scanner';
 
 
 
+
 @IonicPage()
 @Component({
   selector: 'page-home',
@@ -23,7 +24,8 @@ export class HomePage {
 
   constructor(public navCtrl: NavController,
     public barcodeScanner: BarcodeScanner,
-    public alertCtrl: AlertController,) 
+    public alertCtrl: AlertController,
+    ) 
     {
    }
    
@@ -93,19 +95,21 @@ export class HomePage {
   }
 
   goToAtractivos() {
-    this.navCtrl.push("NativeGoogleMapsPage");
+   this.navCtrl.push("NativeGoogleMapsPage");
+  // this.iab.push("https://www.ion-book.com/","_blank");
+
   }
 
   goToActividades() {
-    this.navCtrl.push("AccordionListPage");
+    this.navCtrl.push("CardImagePage");
   }
 
   goToServicios() {
     //alert('Servicios.');
    // this.togglePopupMenu();
-   this.navCtrl.push("CardImagePage");
+   this.navCtrl.push("AccordionListPage");
   }
-/*cultura*/ 
+/*cultura*/
   goToRev(){
 
     alert();
