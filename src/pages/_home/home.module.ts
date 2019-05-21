@@ -1,7 +1,7 @@
 import { HomePage } from './home';
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-//import { GoogleMaps } from '@ionic-native/google-maps';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 
 /*interaccion */
@@ -22,6 +22,14 @@ import { IonicPageModule } from 'ionic-angular';
     HomePage,
     
   ],
+
+  providers: [
+    BarcodeScanner,
+   
+    
+]
+
+
  
 
   

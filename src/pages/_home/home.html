@@ -20,14 +20,14 @@
         <div class="popup-menu-overlay" [ngClass]="{'in': openMenu}" (click)="togglePopupMenu()"></div>
           <div class="popup-menu-toggle" (click)="togglePopupMenu()" [ngClass]="{'out': openMenu}"> <span>TURISMO</span></div>
           <div class="popup-menu-panel" [ngClass]="{'in': openMenu}">
-            <div class="popup-menu-item" (click)="goToQr()">
+            <div class="popup-menu-item" (click)="scan()">
               <ion-icon name="qr-scanner"></ion-icon>
               <span>QR</span>
             </div>
-           <!-- <div class="popup-menu-item" (click)="goToAtractivos()">
+           <div class="popup-menu-item" (click)="goToAtractivos()">
               <ion-icon name="pin"></ion-icon>
               <span>Atractivos</span>
-            </div>-->
+            </div>
             <div class="popup-menu-item" (click)="goToActividades()">
               <ion-icon name="person"></ion-icon>
               <span>Actividades</span>

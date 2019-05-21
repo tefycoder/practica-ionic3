@@ -1,8 +1,8 @@
 import { Component,ViewChild,ElementRef} from '@angular/core';
 import { IonicPage, NavController,AlertController,} from 'ionic-angular';
-import { BarcodeScanner } from '@ionic-native/barcode-scanner';
-import {Platform} from "ionic-angular";
-//import {GoogleMaps, GoogleMap, LatLng, GoogleMapsEvent} from "@ionic-native/google-maps";
+import { BarcodeScanner} from '@ionic-native/barcode-scanner';
+
+
 
 @IonicPage()
 @Component({
@@ -13,27 +13,24 @@ export class HomePage {
 
   openMenu = false;
   openMenu2 = false;
-  public barcodeData;
+
+  products: any[] = [];
+  selectedProduct: any;
+  productFound:boolean = false;
 
  
 
 
   constructor(public navCtrl: NavController,
     public barcodeScanner: BarcodeScanner,
-    public alertCtrl: AlertController,
-   // private platform:Platform,
-   // private googleMaps:GoogleMaps,
-     ) 
+    public alertCtrl: AlertController,) 
     {
-    
-     // this.location = new LatLng(42.346903, -71.135101);
    }
-
+   
    @ViewChild('player') player;
-   @ViewChild('map')
+   
    private mapElement:ElementRef;
-  // private map:GoogleMap;
-  // private location:LatLng;
+
 
   // It's interesting to remove the src and put it back
   // when entering and leaving the page so there are no memory leaks.
@@ -70,61 +67,43 @@ export class HomePage {
 
  /*TURISMO*/
 
-  goToQr(item){
+ scan(){
     
-    this.togglePopupMenu();
+  this.selectedProduct = {};
+  this.barcodeScanner.scan().then((barcodeData) => {
+    this.selectedProduct = this.products.find(product => product.plu === barcodeData.text);
+    if(this.selectedProduct !== undefined) {
+      this.productFound = true;
+      console.log(this.selectedProduct);
+    } else {
+      this.selectedProduct = {};
+      this.productFound = false;
+      
+          console.log("paso 1");
+       
+      
+    }
+  }, (err) => {
+    
+        console.log("paso 2");
+      
+    
+  });
 
-    const options = {
-      preferFrontCamera: false, // iOS and Android
-      showFlipCameraButton: true, // iOS and Android
-      showTorchButton: true, // iOS and Android
-      torchOn: false, // Android, launch with the torch switched on (if available)
-      prompt: 'Place a barcode inside the scan area', // Android
-        // Android, display scanned text for X ms. 0 suppresses it entirely, default 1500
-      resultDisplayDuration: 500,
-      formats: 'QR_CODE,PDF_417', // default: all but PDF_417 and RSS_EXPANDED
-        // Android only (portrait|landscape), default unset so it rotates with the device
-      orientation: 'portrait',
-      disableAnimations: true, // iOS
-      disableSuccessBeep: false // iOS
-    };
-
-    this.barcodeScanner
-            .scan(options)
-            .then((data) => {
-              this.barcodeData = data;
-              const alert = this.alertCtrl.create({
-                title: 'Scan Results',
-                subTitle: data.text,
-                buttons: ['OK']
-              });
-              alert.present();
-            })
-            .catch((err) => {
-              const alert = this.alertCtrl.create({
-                title: 'Attention!',
-                subTitle: err,
-                buttons: ['Close']
-              });
-              alert.present();
-            });
   }
 
   goToAtractivos() {
-    //alert('Atractivos.');
-    //this.togglePopupMenu();
-    //this.mapsCtrl.create().then(() => this.mapsCtrl.centerToGeolocation());
-
+    this.navCtrl.push("NativeGoogleMapsPage");
   }
 
   goToActividades() {
-    alert('Actividades.');
-    this.togglePopupMenu();
+    this.navCtrl.push("AccordionListPage");
   }
 
   goToServicios() {
-    alert('Servicios.');
-    this.togglePopupMenu();
+    //alert('Servicios.');
+   // this.togglePopupMenu();
+   this.navCtrl.push("CardImagePage");
   }
 /*cultura*/ 
   goToRev(){
@@ -135,41 +114,13 @@ export class HomePage {
   }
 
 
-  /*mapa
+ 
 
   ionViewDidLoad() {
     console.log('ingreso mapa');
-    this.platform.ready().then(() => {
-      let element = this.mapElement.nativeElement;
-      this.map = this.googleMaps.create(element);
- 
-      this.map.one(GoogleMapsEvent.MAP_READY).then(() => {
-        let options = {
-          target: this.location,
-          zoom: 8
-        };
- 
-        this.map.moveCamera(options);
-        setTimeout(() => {this.addMarker()}, 2000);
-      });
-    });
+   
   }
  
-  addMarker() {
-    this.map.addMarker({
-      title: 'My Marker',
-      icon: 'blue',
-      animation: 'DROP',
-      position: {
-        lat: this.location.lat,
-        lng: this.location.lng
-      }
-    })
-    .then(marker => {
-      marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
-        alert('Marker Clicked');
-      });
-    });
-  }*/ 
+
 
 }

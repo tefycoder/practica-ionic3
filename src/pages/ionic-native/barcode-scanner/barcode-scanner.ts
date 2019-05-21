@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { BarcodeScanner,BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 import { NavController, AlertController, IonicPage } from 'ionic-angular';
 
 @IonicPage()
@@ -10,6 +10,8 @@ import { NavController, AlertController, IonicPage } from 'ionic-angular';
 export class BarcodeScannerPage {
 
   public barcodeData;
+  scanData : {};
+   options :BarcodeScannerOptions;
 
   constructor(
       public navCtrl: NavController,
@@ -22,7 +24,7 @@ export class BarcodeScannerPage {
   }
 
   scan() {
-    const options = {
+    /*const options = {
       preferFrontCamera: false, // iOS and Android
       showFlipCameraButton: true, // iOS and Android
       showTorchButton: true, // iOS and Android
@@ -55,6 +57,17 @@ export class BarcodeScannerPage {
                 buttons: ['Close']
               });
               alert.present();
-            });
+            });*/
+
+            this.options = {
+              prompt : "Scan your barcode "
+          }
+          this.barcodeScanner.scan(this.options).then((barcodeData) => {
+      
+              console.log(barcodeData);
+              this.scanData = barcodeData;
+          }, (err) => {
+              console.log("Error occured : " + err);
+          });         
   }
 }
