@@ -8,6 +8,7 @@ import { Subject } from 'rxjs/Subject';
 @Component({
   templateUrl: 'app.html'
 })
+
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
@@ -46,19 +47,19 @@ export class MyApp {
       { title: 'Cultura', component: 'HomePage', active: false, icon: 'map' },
       { title: 'Turismo',
         component: 'HomePage', active: false, icon: 'ionic' },
-      //{ title: 'Ionic Native Features', component: 'IonicNativePage', active: false, icon: 'ionic' },
-     // { title: 'Login', component: 'LoginListPage', active: false, icon: 'archive' },
-     // { title: 'Lists', component: 'ListPage', active: false, icon: 'body' },
-    //  { title: 'Miscellaneous', component: 'MiscellaneousListPage', active: false, icon: 'bookmarks' },
-    //  { title: 'Modal with Navigation', component: 'ModalWithNavigationPage', active: false, icon: 'book' },
-    //  { title: 'Popup Fab', component: 'PopupFabPage', active: false, icon: 'map' },
-     // { title: 'Popup Modal', component: 'PopupModalsPage', active: false, icon: 'basket' },
-     // { title: 'Popup Menu', component: 'PopupMenuListPage', active: false, icon: 'beer' },
-    //  { title: 'Profile', component: 'ProfileListPage', active: false, icon: 'camera' },
-    //  { title: 'Side Menu', component: 'SideMenuPage', active: false, icon: 'bookmark' },
-   //   { title: 'Timeline', component: 'TimelinePage', active: false, icon: 'calendar' },
-     // { title: 'Slides', component: 'SlidesPage', active: false, icon: 'contact' },
-    //  { title: 'Theming', component: 'ThemingPage', active: false, icon: 'power' },
+     /* { title: 'Ionic Native Features', component: 'IonicNativePage', active: false, icon: 'ionic' },
+     { title: 'Login', component: 'LoginListPage', active: false, icon: 'archive' },
+      { title: 'Lists', component: 'ListPage', active: false, icon: 'body' },
+     { title: 'Miscellaneous', component: 'MiscellaneousListPage', active: false, icon: 'bookmarks' },
+     { title: 'Modal with Navigation', component: 'ModalWithNavigationPage', active: false, icon: 'book' },
+     { title: 'Popup Fab', component: 'PopupFabPage', active: false, icon: 'map' },
+      { title: 'Popup Modal', component: 'PopupModalsPage', active: false, icon: 'basket' },
+      { title: 'Popup Menu', component: 'PopupMenuListPage', active: false, icon: 'beer' },
+     { title: 'Profile', component: 'ProfileListPage', active: false, icon: 'camera' },
+     { title: 'Side Menu', component: 'SideMenuPage', active: false, icon: 'bookmark' },
+    { title: 'Timeline', component: 'TimelinePage', active: false, icon: 'calendar' },
+      { title: 'Slides', component: 'SlidesPage', active: false, icon: 'contact' },
+     { title: 'Theming', component: 'ThemingPage', active: false, icon: 'power' },*/
     ];
 
     this.activePage.subscribe((selectedPage: any) => {

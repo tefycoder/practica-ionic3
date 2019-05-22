@@ -12,6 +12,13 @@ import { BarcodeScanner} from '@ionic-native/barcode-scanner';
 })
 export class HomePage {
 
+  backgrounds = [
+    'assets/img/background/background-1.jpg',
+    'assets/img/background/background-2.jpg',
+    //'assets/img/background/background-3.jpg',
+    'assets/img/background/background-4.jpg'
+  ];
+
   openMenu = false;
   openMenu2 = false;
 
@@ -38,13 +45,11 @@ export class HomePage {
   // when entering and leaving the page so there are no memory leaks.
   ionViewWillLeave() {
     // the .nativeElement property of the ViewChild is the reference to the tag <video>
-    this.player.nativeElement.src = '';
-    this.player.nativeElement.load();
+   
   }
 
   ionViewWillEnter() {
-    this.player.nativeElement.src = 'assets/video/background-480.mp4';
-    this.player.nativeElement.load();
+  
   }
 
 

@@ -21,12 +21,12 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
   exports: [
     HomePage,
     
+    
   ],
 
   providers: [
     BarcodeScanner,
-   
-    
+
 ]
 
 

@@ -20,6 +20,7 @@ export class NativeGoogleMapsProvider {
   constructor(
     public geolocation: Geolocation,
     private googleMaps: GoogleMaps,
+    //apiUrl = 'https://jsonplaceholder.typicode.com',
     ) {
   }
 
