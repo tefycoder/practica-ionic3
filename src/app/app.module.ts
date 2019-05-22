@@ -4,7 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { MODULES, PROVIDERS } from './app.imports';
-import { AgmCoreModule } from '@agm/core';
+//import { AgmCoreModule } from '@agm/core';
 import { RestProvider } from '../providers/rest/rest';
 
 @NgModule({
@@ -16,9 +16,7 @@ import { RestProvider } from '../providers/rest/rest';
     MODULES,
     IonicModule.forRoot(MyApp),
     SharedModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyD2NgXDCqQ8sKFiAmz-BZPevp0tWwCWHDA'
-    })
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
