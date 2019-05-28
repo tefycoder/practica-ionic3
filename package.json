@@ -26,7 +26,8 @@
         "@angular/tsc-wrapped": "4.2.6",
         "@ionic-native/barcode-scanner": "4.5.2",
         "@ionic-native/camera": "4.5.2",
-        "@ionic-native/card-io": "4.5.2",
+        "@ionic-native/camera-preview": "^4.20.0",
+        "@ionic-native/card-io": "^4.20.0",
         "@ionic-native/core": "4.5.2",
         "@ionic-native/diagnostic": "4.5.2",
         "@ionic-native/geolocation": "4.5.2",
@@ -38,9 +39,11 @@
         "angular2-swing": "^0.12.1",
         "card.io.cordova.mobilesdk": "git+https://github.com/card-io/card.io-Cordova-Plugin.git",
         "chart.js": "^2.4.0",
-        "cordova-android": "^6.1.2",
+        "cordova-android": "8.0.0",
         "cordova-browser": "6.0.0",
+        "cordova-js": "^5.0.0",
         "cordova-plugin-camera": "^2.3.1",
+        "cordova-plugin-camera-preview": "0.11.0",
         "cordova-plugin-compat": "^1.2.0",
         "cordova-plugin-console": "^1.0.5",
         "cordova-plugin-device": "^1.1.4",
@@ -61,7 +64,7 @@
         "zone.js": "0.8.18"
     },
     "devDependencies": {
-        "@ionic/app-scripts": "^3.2.3",
+        "@ionic/app-scripts": "^3.2.4",
         "@ionic/lab": "1.0.24",
         "all-contributors-cli": "^4.5.0",
         "typescript": "2.4.2"
@@ -78,7 +81,6 @@
     "description": "Advanced Ionic Components: An Awesome Ionic project",
     "cordova": {
         "platforms": [
-            "android",
             "browser"
         ],
         "plugins": {
@@ -96,7 +98,10 @@
             "cordova-plugin-whitelist": {},
             "cordova.plugins.diagnostic": {},
             "ionic-plugin-keyboard": {},
-            "phonegap-plugin-barcodescanner": {}
+            "phonegap-plugin-barcodescanner": {},
+            "cordova-plugin-camera-preview": {
+                "ANDROID_SUPPORT_LIBRARY_VERSION": "26+"
+            }
         }
     }
 }

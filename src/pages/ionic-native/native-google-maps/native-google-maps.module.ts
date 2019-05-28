@@ -1,7 +1,9 @@
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { NativeGoogleMapsPage } from './native-google-maps';
-import { HttpClientModule } from '@angular/common/http';
+import { Geolocation } from '@ionic-native/geolocation';
+import { NativeGoogleMapsProvider } from '../../../providers/native-google-maps/native-google-maps';
 
 @NgModule({
   declarations: [
@@ -9,10 +11,16 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     IonicPageModule.forChild(NativeGoogleMapsPage),
-    HttpClientModule,
+    BrowserModule,
+
+
   ],
-  exports: [
-    NativeGoogleMapsPage
+  providers: [
+   
+    Geolocation,
+   
+    NativeGoogleMapsProvider
   ]
+  
 })
 export class NativeGoogleMapsPageModule {}

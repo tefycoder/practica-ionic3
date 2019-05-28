@@ -5,7 +5,7 @@ import { AppState } from './app.global';
 import { ToastService } from '../providers/util/toast.service';
 import { AlertService } from '../providers/util/alert.service';
 import { CameraProvider } from '../providers/util/camera.provider';
-import { NativeGoogleMapsProvider } from '../providers/native-google-maps/native-google-maps';
+import {NativeGoogleMapsProvider} from '../providers/native-google-maps/native-google-maps';;
 
 // Ionic native providers
 import { CardIO } from '@ionic-native/card-io';

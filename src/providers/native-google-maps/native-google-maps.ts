@@ -1,103 +1,82 @@
-import { ElementRef, Injectable } from '@angular/core';
-import {
-    CameraPosition,
-    GoogleMap,
-    GoogleMapOptions,
-    GoogleMaps,
-    GoogleMapsAnimation,
-    GoogleMapsEvent,
-    GoogleMapsMapTypeId,
-    LatLng,
-    MarkerOptions,
-} from '@ionic-native/google-maps';
-
+import { Injectable } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation';
+
+
+declare var google;
 
 @Injectable()
 export class NativeGoogleMapsProvider {
-  map: GoogleMap;
+  mapElement: any;
+  map: any;
+  marker: any;
+  apiKey: string = "AIzaSyD2NgXDCqQ8sKFiAmz-BZPevp0tWwCWHDA";
+  centerChangedCallback: any;
 
-  constructor(
-    public geolocation: Geolocation,
-    private googleMaps: GoogleMaps,
-    //apiUrl = 'https://jsonplaceholder.typicode.com',
-    ) {
+  constructor(public geolocation: Geolocation) {
   }
 
-  // Note: Llame a este método en ngAfterViewInit
-  create() {
-    const element = document.getElementById('map');
-    const mapOptions: GoogleMapOptions = {
-      camera: {
-        target: {
-          lat: 43.0741904,
-          lng: -89.3809802
-        },
-        zoom: 18,
-        tilt: 10
-      },
-      mapType: GoogleMapsMapTypeId.NORMAL,
-      controls: {
-        compass: true,
-        myLocationButton: true,
-        indoorPicker: true,
-        zoom: true
-      },
-      gestures: {
-        scroll: true,
-        tilt: true,
-        rotate: true,
-        zoom: true
-      },
-      preferences: null
-    };
+  init(mapElement: any, centerChangedCallback: any): Promise<any> {
+    this.mapElement = mapElement;
+    this.centerChangedCallback = centerChangedCallback;
 
-    this.map = this.googleMaps.create(element, mapOptions);
-    return this.map.one(GoogleMapsEvent.MAP_READY);
+    return this.loadMap();
   }
 
-  centerToGeolocation() {
-    return this.getGeolocationPosition().then((position) => {
-      return this.centerToPosition(position);
-    }, error => {
-      return Promise.reject(error);
+  loadMap(): Promise<any> {
+    return new Promise((resolve) => {
+      if (typeof google == 'undefined' || typeof google.maps == "undefined") {
+        window['mapInit'] = () => {
+          this.initMap().then(() => {
+            resolve(true);
+          });
+        }
+
+        let script = document.createElement("script");
+        script.id = "googleMaps";
+
+        if (this.apiKey) {
+          script.src = 'http://maps.google.com/maps/api/js?key=' + this.apiKey + '&callback=mapInit';
+        } else {
+          script.src = 'http://maps.google.com/maps/api/js?callback=mapInit';
+        }
+
+        document.body.appendChild(script);
+      } else {
+        resolve(true);
+      }
     });
   }
 
-  getGeolocationPosition() {
-    return new Promise((resolve, reject) => {
+  initMap(): Promise<any> {
+    return new Promise((resolve) => {
       this.geolocation.getCurrentPosition().then((position) => {
-        const latLng: LatLng = new LatLng(position.coords.latitude, position.coords.longitude);
-        resolve(latLng);
-      }, error => {
-        reject(error);
+        let center = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+        let mapOptions = {
+          center: center,
+          zoom: 17,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+
+        this.map = new google.maps.Map(this.mapElement, mapOptions);
+        this.map.addListener('click', e => {
+          this.map.panTo(e.latLng);
+
+          if (this.marker == undefined) {
+            this.marker = new google.maps.Marker({
+              map: this.map,
+              position: e.latLng
+            });
+          } else {
+            this.marker.setPosition(e.latLng);
+          }
+
+          if (this.centerChangedCallback)
+            this.centerChangedCallback(e.latLng);
+        });
+
+        resolve(true);
       });
-    });
-  }
-
-  centerToPosition(latLng: any, zoom?: number, tilt?: number) {
-    const cameraPosition = {
-      target: latLng,
-      zoom  : zoom || 18,
-      tilt  : tilt || 10
-    };
-    return this.map.animateCamera(cameraPosition);
-  }
-
-  addMarker(position, title: string, infoClickCallback, animated = true) {
-    const markerOptions: MarkerOptions = {
-      position,
-      title,
-      animation: animated ? GoogleMapsAnimation.BOUNCE : null,
-      infoWindowAnchor: infoClickCallback
-    };
-
-    return this.map.addMarker(markerOptions);
-  }
-
-  addMarkerToGeolocation(title: string, infoClickCallback, animated?: boolean) {
-    this.getGeolocationPosition().then(position => {
-      this.addMarker(position, title, infoClickCallback, animated);
     });
   }
 }
