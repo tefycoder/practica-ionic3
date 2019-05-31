@@ -11,15 +11,15 @@ export class SignupModalPage {
   slides = [
     {
       id: 1,
-      imageUrl: 'assets/img/slides/square.png',
+      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXuNqUvumAKr3dV4tlE15SWltovoAlzL5o-WyqyykeA25hmDOw',
     },
     {
       id: 2,
-      imageUrl: 'assets/img/slides/square-2.jpg',
+      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7bDlGYGud1a54aXlEWMOwp9rNiuWtAMck9nQhEAXQ1GJLUkPORw',
     },
     {
       id: 3,
-      imageUrl: 'assets/img/slides/square-3.jpg',
+      imageUrl: 'https://cdne.diariocorreo.pe/thumbs/uploads/img/2018/03/23/semana-santa-del-centro-historico-de-lima-es-decla-809686-jpg_604x0.jpg',
     },
   ];
 

@@ -10,10 +10,17 @@
       <div class="login-container">
         <img class="logo" src="assets/img/logo/logoprincipal.png" />
         <form (submit)="doLogin()">
-         <!--button de menu turismo -->
-        <div class="popup-menu">
+
+         <!--button de menu turismo 
+      
+
+
+
+      <div class="popup-menu">
             <div class="popup-menu-overlay" [ngClass]="{'in': openMenu}" (click)="togglePopupMenu()"></div>
-              <div class="popup-menu-toggle" (click)="togglePopupMenu()" [ngClass]="{'out': openMenu}"> <span>TURISMO</span></div>
+              <div class="" (click)="togglePopupMenu()" [ngClass]="{'out': openMenu}"> <span>TURISMO</span></div>
+
+              
               <div class="popup-menu-panel" [ngClass]="{'in': openMenu}">
                 <div class="popup-menu-item" (click)="scan()">
                   <ion-icon name="qr-scanner"></ion-icon>
@@ -33,10 +40,10 @@
                 </div>
           
               </div>
-            </div>
+            </div>-->
        <!-- fin- button de menu turismo -->
     
-       <!--  button de menu Cultura -->
+       <!--  button de menu Cultura 
        <div class="popup-menu">
           <div class="popup-menu-overlay" [ngClass]="{'in': openMenu2}" (click)="togglePopupMenu2()"></div>
             <div class="popup-menu-toggle2" (click)="togglePopupMenu2()" [ngClass]="{'out': openMenu2}"> <span>CULTURA</span></div>
@@ -47,10 +54,19 @@
               </div>
               
             </div>
-          </div>
+          </div>-->
         </form>
       </div>
     </ion-content>
+    <ion-footer>
+        <button ion-button large full no-margin (click)="scan()" color="secondary" >
+            QR
+        </button>
+        <button ion-button large full  (click)="goToAtractivos()" color="secondary" no-margin>Atractivos</button>
+        <button ion-button large full no-margin (click)="goToActividades()" color="secondary">Actividades</button>
+         <button ion-button large full no-margin (click)="goToServicios()" color="secondary">Servicios</button>
+         <button ion-button large full no-margin color="secondary" (click)="openLink()" >Revista</button>
+      </ion-footer>
 
   <!--fin-->
   

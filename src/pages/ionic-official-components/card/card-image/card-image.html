@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Actividades</ion-title>
+    <ion-title>Servicios</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content>
@@ -16,19 +16,19 @@
     </ion-card-content>
     <ion-row no-padding>
       <ion-col>
-        <button ion-button clear small color="" icon-left (click)="favorite(card)">
+        <button ion-button clear small color="" icon-left (click)="openHintModal()">
           <ion-icon name='compass'></ion-icon>
           Lugar
         </button>
       </ion-col>
       <ion-col text-center>
-        <button ion-button clear small color="" icon-left (click)="listen(card)">
+        <button ion-button clear small color="" icon-left (click)="openWalkthroughModal()">
           <ion-icon name='fastforward'></ion-icon>
           video
         </button>
       </ion-col>
       <ion-col text-right>
-        <button ion-button clear small color="" icon-left (click)="share(card)">
+        <button ion-button clear small color="" icon-left (click)="openWalkthroughModal()">
           <ion-icon name='share-alt'></ion-icon>
           información
         </button>

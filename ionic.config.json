@@ -1,7 +1,8 @@
 {
   "name": "Advanced Ionic2 Components",
   "integrations": {
-    "cordova": {}
+    "cordova": {},
+    "capacitor": {}
   },
   "type": "ionic-angular",
   "id": "bd1b6d71"

@@ -1,6 +1,8 @@
 import { Component,ViewChild,ElementRef} from '@angular/core';
 import { IonicPage, NavController,AlertController,} from 'ionic-angular';
 import { BarcodeScanner} from '@ionic-native/barcode-scanner';
+//import { InAppBrowserOriginal } from '@ionic-native/in-app-browser';
+
 
 
 
@@ -32,6 +34,8 @@ export class HomePage {
   constructor(public navCtrl: NavController,
     public barcodeScanner: BarcodeScanner,
     public alertCtrl: AlertController,
+    //private iap: InAppBrowserOriginal,
+    
     ) 
     {
    }
@@ -106,24 +110,27 @@ export class HomePage {
   }
 
   goToActividades() {
-    this.navCtrl.push("CardImagePage");
+    this.navCtrl.push("TimelinePage");
   }
 
   goToServicios() {
     //alert('Servicios.');
    // this.togglePopupMenu();
-   this.navCtrl.push("AccordionListPage");
+   this.navCtrl.push("CardImagePage");
   }
 /*cultura*/
   goToRev(){
-
+    
+    this.navCtrl.push("ExpandableHeaderPage");
     alert();
     this.togglePopupMenu();
 
   }
 
 
- 
+  openLink(){
+    //this.iap.create("http://www.munlima.gob.pe/images/agenda-cultural-mayo.pdf","_blank");
+  }
 
   ionViewDidLoad() {
     console.log('ingreso mapa');

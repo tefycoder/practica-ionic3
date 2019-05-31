@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, IonicPage } from 'ionic-angular';
+import { NavController, NavParams, ModalController,IonicPage } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -16,7 +16,7 @@ export class TimelinePage {
                 Sierra leone bologi komatsuna celery peanut swiss chard silver beet squash dandelion maize
                 chicory burdock tatsoi dulse radish wakame beetroot.`,
       icon: 'calendar',
-      time: { subtitle: '4/16/2013', title: '21:30' }
+      time: { subtitle: '31/05/2019', title: '5:00' }
     },
     {
       title: 'Courgette daikon',
@@ -25,7 +25,7 @@ export class TimelinePage {
                 Sierra leone bologi komatsuna celery peanut swiss chard silver beet squash dandelion maize
                 chicory burdock tatsoi dulse radish wakame beetroot.`,
       icon: 'calendar',
-      time: { subtitle: 'January', title: '29' }
+      time: { subtitle: 'Mayo', title: '31' }
     },
     {
       title: 'Courgette daikon',
@@ -34,17 +34,39 @@ export class TimelinePage {
                 Sierra leone bologi komatsuna celery peanut swiss chard silver beet squash dandelion maize
                 chicory burdock tatsoi dulse radish wakame beetroot.`,
       icon: 'calendar',
-      time: { title: 'Short Text' }
+      time: { title: 'Abril' }
     }
   ];
 
   constructor(
     public navCtrl: NavController,
+    public modalCtrl: ModalController,
     public navParams: NavParams
   ) { }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TimelinePage');
+    console.log('actividades');
   }
+
+  openHintModal() {
+    this.openModal('HintModalPage');
+  }
+
+  openWalkthroughModal() {
+    this.openModal('WalkthroughModalPage');
+  }
+
+  openSignupModal() {
+    this.openModal('SignupModalPage');
+  }
+
+
+   openModal(pageName) {
+    this.modalCtrl.create(pageName, null, { cssClass: 'inset-modal' })
+                  .present();
+  }
+
+
+
 
 }

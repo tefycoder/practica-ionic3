@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>timeline</ion-title>
+    <ion-title>Actividades</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -21,6 +21,11 @@
         <ion-card-content>
           {{item.content}}
         </ion-card-content>
+        <button ion-button clear small color="" icon-left (click)="openSignupModal()">
+            <ion-icon name='compass'></ion-icon>
+            más información
+          </button>
+        
       </ion-card>
     </timeline-item>
 

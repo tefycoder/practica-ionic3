@@ -10,17 +10,17 @@ export class WalkthroughModalPage {
 
   slides = [
     {
-      title: 'Dream\'s Adventure',
+      title: 'Lima',
       imageUrl: 'assets/img/slides/square.png',
       songs: 2,
     },
     {
-      title: 'Really nice game',
+      title: 'Lima',
       imageUrl: 'assets/img/slides/square-2.jpg',
       songs: 4,
     },
     {
-      title: 'For the Weekend',
+      title: 'Lima',
       imageUrl: 'assets/img/slides/square-3.jpg',
       songs: 4,
     },

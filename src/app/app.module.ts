@@ -1,11 +1,12 @@
 import { SharedModule } from './shared.module';
+
 import { forwardRef,NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
 import { MODULES, PROVIDERS } from './app.imports';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+//import { InAppBrowserOriginal } from '@ionic-native/in-app-browser';
 import { RestProvider } from '../providers/rest/rest';
 import { Geolocation } from '@ionic-native/geolocation';
 import { NativeGoogleMapsProvider} from '../providers/native-google-maps/native-google-maps';
@@ -33,7 +34,8 @@ import { NativeGoogleMapsProvider} from '../providers/native-google-maps/native-
     Geolocation,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     NativeGoogleMapsProvider,
-    RestProvider 
+    RestProvider,
+    
     
   ]
 })

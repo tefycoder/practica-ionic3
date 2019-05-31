@@ -82,17 +82,17 @@ page-home {
     visibility: visible;
   }
   .popup-menu-toggle {
-    position: fixed;
+   /* position: fixed;
     width: 68px;
     height: 40px;
     bottom: 18px;
     left: 60%;
-    margin-left: -20px;
+    margin-left: -20px;*/
     background-color: #00A39C;
-    border: 1px solid #1A4A84;
+    /*border: 1px solid #1A4A84;
     z-index: 7;
     -webkit-transition: all 0.35s ease-in-out;
-    transition: all 0.35s ease-in-out;
+    transition: all 0.35s ease-in-out;*/
   }
   .popup-menu-toggle:before {
     position: absolute;
